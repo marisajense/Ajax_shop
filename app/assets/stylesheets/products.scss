@@ -1,3 +1,32 @@
-// Place all the styles related to the products controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  background-color: #455a64;
+  // font-family: 'Lato', sans-serif;
+  // font-family: 'Raleway', sans-serif;
+  // font-family: 'Reem Kufi', sans-serif;
+  // font-family: 'Dosis', sans-serif;
+  font-family: 'Comfortaa', cursive;
+  padding: 10px;
+}
+
+h1 {
+  background-color: #2C7D09;
+  border: 2px solid black;
+  padding: 10px;
+  margin-top: -3px;
+  text-shadow: 2px 2px white;
+}
+
+label {
+  color: white;
+  text-shadow: 2px 2px black;
+  font-size: 15px;
+}
+
+input {
+  background-color: white;
+}
+
+.btn {
+  text-shadow: 2px 2px black;
+  box-shadow: 5px 5px #404040;
+}

@@ -24,12 +24,12 @@ $(document).ready(function() {
         // $products.append('<div id=' + product.id + '>' + '<div class="col s4">' + product.name + " " + product.base_price + '</div>  <button class="blue btn show-product"><i class="material-icons">visibility</i></button> <button class="orange btn edit-product"><i class="material-icons">edit</i></button> <button class="red btn delete-product"><i class="material-icons">delete</i></button> </div>');
         $products.append(
           "<div class='row'>" +
-            "<div class='col s12 m6'>" +
-              "<div class='card blue-grey darken-4'>" +
+            "<div id='" + product.id + "'class='col s12 m6'>" +
+              "<div class='card grey darken-4'>" +
                 "<div class='card-content white-text'>" +
-                  "<span class='card-title'>" + "Name: " + product.name + "</span>" +
+                  "<span class='card-title'>" + product.name + "</span>" +
                   "<p>" + "Description: " + product.description + "</p>" +
-                  "<p>" + "Price: " + product.base_price + "</p>" +
+                  "<p>" + "Price: " + "$" + product.base_price + "</p>" +
                   "<button class='blue btn show-product'>" + "<i class='material-icons'>" + "visibility" + "</i>" + "</button>" +
                   "<button class='orange btn edit-product'>" + "<i class='material-icons'>" + "edit" + "</i>" + "</button>" +
                   "<button class='red btn delete-product'>" + "<i class='material-icons'>" + "delete" + "</i>" + "</button>" +
@@ -46,7 +46,8 @@ $(document).ready(function() {
 
   //--------------------EDIT BUTTON----------------//
   $(document).on('click', '.edit-product', function() {
-  	var productId = $(this).closest.attr('id');
+    // debugger;
+  	var productId = $(this).parent().parent().parent().attr('id');
   	$.ajax({
   		type: 'GET',
   		url: BASEURL + '/products/' + productId,
@@ -68,7 +69,7 @@ $(document).ready(function() {
 
   //-----------------DELETE BUTTON------------------//
   $(document).on('click', '.delete-product', function() {
-    var productId = $(this).parent().attr('id');
+    var productId = $(this).parent().parent().parent().attr('id');
     $.ajax({
       type: 'DELETE',
       url: BASEURL + '/products/' + productId,
@@ -82,7 +83,7 @@ $(document).ready(function() {
 
   // ----------------SHOW BUTTON------------------//
   $(document).on('click', '.show-product', function() {
-    var productId = $(this).parent().attr('id');
+    var productId = $(this).parent().parent().parent().attr('id');
     $.ajax({
       type:'GET',
       url: BASEURL + '/products/' + productId,
@@ -94,10 +95,14 @@ $(document).ready(function() {
       $products.append(
         "<div class='row'>" +
           "<div class='col s12 m6'>" +
-            "<div class='card blue-grey darken-1'>" +
-              "<div class='card-content white-text'>" +
-                "<span class='card-title'>" + "Name: " + product.name + " " + product.description + "</span>" +
-                "<p>" + "Price: " + product.base_price + "</p>" +
+            "<div class='card orange accent-3'>" +
+              "<div class='card-content black-text'>" +
+                "<span class='card-title'>" + "Product: " + product.name + "</span>" +
+                "<p>" + "Price: " + "$" + product.base_price + "</p>" +
+                "<p>" + "Description: " + product.description + "</p>" +
+                "<p>" + "Color: " + product.color + "</p>" +
+                "<p>" + "Weight: " + product.weight + "</p>" +
+                "<p>" + "Quantity: " + product.quantity_on_hand + "</p>" +
               "</div>" +
             "</div>" +
           "</div>" +
