@@ -1,0 +1,36 @@
+<h1 class='center'>Ajax Shop</h1>
+<hr />
+<form id='add-product-form' method='POST' action='api/v1/products'>
+  <label>Product Name</label>
+  <input id='product-name' type='text' name='product[name]' required />
+  <br />
+
+  <label>Base Price</label>
+  <input id='product-base-price' type='number' name='product[base_price]' required />
+  <br />
+
+  <label>Product Description</label>
+  <textarea id='product-description' name="product[description]"></textarea>
+  <br />
+
+  <label>Product Color</label>
+  <input id='product-color' type='text' name='product[color]' required />
+  <br />
+
+  <label>Product Weight</label>
+  <input id='product-name' type='number' name='product[weight]' required />
+  <br />
+
+  <label>Quantity</label>
+  <input id='product-quantity' type='number' name='product[quantity_on_hand]' required />
+  <br />
+
+  <input type='submit' class='btn black' />
+</form>
+
+<h3>Products List</h3>
+<!-- INDEX ACTION-->
+<button id='get-products' class='btn green'>All Products</button>
+<div id='products' class='row'>
+
+</div>
